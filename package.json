@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "start": "yarn build && node index.js",
+    "start-dev": "yarn build && node --inspect index.js",
     "build": "webpack --config webpack.config.js"
   },
-  "author": "Rohit kumar",
+  "author": "Nabaraj Saha",
   "license": "MIT",
   "dependencies": {
     "@babel/register": "^7.8.6",
+    "axios": "^0.19.2",
     "express": "^4.17.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",

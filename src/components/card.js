@@ -1,16 +1,29 @@
 import React from 'react';
-import CardLeft from './card-left';
-import CardRight from './card-right';
 
 const Card = ({ apps, totalapps }) => {
-  const cards = apps.map((app, index) => (
-    <div className="app-card" key={app.name}>
-      <CardLeft img={app.img} appno={index + 1} totalapps={totalapps} />
-      <CardRight app={app}/>
-    </div>
-  ))
+  console.log(apps);
+  return (<table className="table">
+    <thead>
+      <tr>
+        <th scope="col">Comments</th>
+        <th scope="col">Vote Count</th>
+        <th scope="col">Up Vote</th>
+        <th scope="col">News Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      {apps.map((app, index) => {
+        {/* let title = app._highlightResult.story_title ? app._highlightResult.story_title  */ }
+        return (<tr key={app.story_id}>
+          <td>{app.num_comments || 0}</td>
+          <td>{app.voteCount || 0}</td>
+          <td><img src="./../../media/arrow_drop_up-24px.svg" alt="" /></td>
+          <td>{app.story_title}</td>
+        </tr>)
+      })}
+    </tbody>
 
-  return cards
+  </table>)
 }
 
 
